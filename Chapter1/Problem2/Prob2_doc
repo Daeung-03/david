@@ -1,0 +1,14 @@
+# Document for Problem_2 by Daeung-03
+
+
+## 1.Run Without Debugging versus Start Debugging
+실행속도 차이가 있다. Debugging이 체감 되는 수준으로 좀 더 느리다. 또 debugmode를 끄면 Start Debugging을 할 수 없다.
+debug mode -> 상세한 오류 설명(특히 웹페이지에 바로 표시됨), 서버를 재시작 할 필요없이 수정 가능
+
+## 2.Flask의 역할
+
+## 3.0.0.0.0으로 설정 시 의미와 장단점
+
+## 4.127.0.0.1 접속 vs 내부 IP 접속 차이
+
+## 5.포트 번호의 의미와 기본 충돌 시 해결 방안

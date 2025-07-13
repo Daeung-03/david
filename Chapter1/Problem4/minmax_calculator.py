@@ -9,6 +9,7 @@ def input_numbers():
     """
     try:
         list_numbers = list(map(float, input().split())) #default map(function, iterable)
+        if len(list_numbers) < 1: raise ValueError
         return list_numbers
     except ValueError:
         print("Invalid input.")

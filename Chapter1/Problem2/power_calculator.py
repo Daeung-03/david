@@ -39,6 +39,12 @@ def calculate(number, exponent):
     number ** exponent 값 return
     int로 표현할 수 있으면 int로 형변환
     """
+    if exponent == 0:
+        if number.is_integer(): return int(number)
+        else: return number #exponent 0 일 때 예외 처리
+    elif exponent < 0:
+        return 1/calculate(number, -exponent) #exponent 음수일 때 양수의 역수 계산 후 역수 리턴
+
     solution = 1.0
     while exponent >= 1:
         if exponent % 2 == 1:

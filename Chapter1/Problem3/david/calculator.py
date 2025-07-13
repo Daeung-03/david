@@ -31,6 +31,7 @@ def divide(a, b):
         return sol
     except ZeroDivisionError:
         print("Error: Division by zero")
+        exit()
 
     
 def input_num():
@@ -60,24 +61,33 @@ def menu():
         return command
 
 def calculate(a, b, operator):
+    solution = 0.0
     if operator == '+':
-        return add(a,b)
+        solution = add(a,b)
     elif operator == '-':
-        return subtract(a,b)
+        solution = subtract(a,b)
     elif operator == '*':
-        return multiply(a,b)
+        solution = multiply(a,b)
     elif operator == '/':
-        return divide(a,b)
+        solution = divide(a,b)
+    
+    if solution.is_integer(): return int(solution)
+    else: return solution
+
+
+def print_sol(command):
+    if command == '0':
+        printed = f"Result: {calculate(input_num(), input_num(), input_operator())}"
+        print(printed)
+    elif command == '1':
+        input_expression = input("Enter expression: ").split()
+        printed = f"Result: {calculate(float(input_expression[0]), float(input_expression[2]), input_expression[1])}"
+        print(printed)
 
 def main():
-    if menu() == '0':
-        num1 = input_num()
-        num2 = input_num()
-        operator = input_operator()
-        printed = f"Result: {calculate(num1, num2, operator)}"
-        print(printed)
-    
-    
-    
+    command = menu()
+    print_sol(command)
+
+
 if __name__ == "__main__":
     main()

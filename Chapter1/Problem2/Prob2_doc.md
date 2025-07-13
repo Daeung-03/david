@@ -23,4 +23,4 @@ debug mode -> 상세한 오류 설명(특히 웹페이지에 바로 표시됨), 
 주소체계에서 요즘은 Ipv6(16비트 * 8)도 사용하기 때문에 내부IP로 접속하면 ::1로도 변환될 수 있다(이는 시스템 설정에 따른다). 
 
 ## 5.포트 번호의 의미와 기본 충돌 시 해결 방안
-<img src="https://www.notion.so/chapter2-22eaea9283a180118101ff3e366d828a?source=copy_link#22eaea9283a180e08e37d18d490cbced" width="100px" height="50px" title="Github_Logo"></img>
+

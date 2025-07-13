@@ -35,6 +35,9 @@ def divide(a, b):
 
     
 def input_num():
+    """
+    숫자를 입력받아 return한다. 올바른 숫자를 받을 때 까지 반복한다.
+    """
     while True:
         try:
             number = float(input("Enter number: "))
@@ -45,6 +48,9 @@ def input_num():
         else: break # check valid input 
 
 def input_operator():
+    """
+    연산자를 입력받아 return한다. 약속된 연산자를 받을 때 까지 반복한다.
+    """
     while True:
         try:
             command = input("Enter operator: ").strip()
@@ -56,11 +62,17 @@ def input_operator():
         else: break
 
 def menu():
+    """
+    사용자에게 두 가지 모드 중 하나를 선택할 수 있도록 인터페이스를 제공한다.
+    """
         print("(0): basic\n(1): expression")
         command = input().strip()
         return command
 
 def calculate(a, b, operator):
+    """
+    두 수 a, b를 operator에 맞게 계산한다. 이 때 a가 항상 수식의 왼쪽이다.
+    """
     if operator == '+':
         return add(a,b)
     elif operator == '-':
@@ -72,6 +84,9 @@ def calculate(a, b, operator):
 
 
 def print_sol(command):
+    """
+    사용자가 선택한 모드에 맞게 계산을 실행하고 결과를 출력한다.
+    """
     if command == '0':
         printed = f"Result: {calculate(input_num(), input_num(), input_operator())}"
         print(printed)

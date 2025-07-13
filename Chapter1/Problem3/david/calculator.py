@@ -76,7 +76,7 @@ def print_sol(command):
         printed = f"Result: {calculate(input_num(), input_num(), input_operator())}"
         print(printed)
     elif command == '1':
-        input_expression = input("Enter expression: ").split()
+        input_expression = input("Enter expression: ").split() #default split(separate, maxsplit)
         printed = f"Result: {calculate(float(input_expression[0]), float(input_expression[2]), input_expression[1])}"
         print(printed)
 

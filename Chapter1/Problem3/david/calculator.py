@@ -61,18 +61,14 @@ def menu():
         return command
 
 def calculate(a, b, operator):
-    solution = 0.0
     if operator == '+':
-        solution = add(a,b)
+        return add(a,b)
     elif operator == '-':
-        solution = subtract(a,b)
+        return subtract(a,b)
     elif operator == '*':
-        solution = multiply(a,b)
+        return multiply(a,b)
     elif operator == '/':
-        solution = divide(a,b)
-    
-    if solution.is_integer(): return int(solution)
-    else: return solution
+        return divide(a,b)
 
 
 def print_sol(command):
@@ -85,9 +81,8 @@ def print_sol(command):
         print(printed)
 
 def main():
-    command = menu()
-    print_sol(command)
+    print_sol(menu())
 
-
+    
 if __name__ == "__main__":
     main()

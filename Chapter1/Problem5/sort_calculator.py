@@ -1,6 +1,8 @@
 """
 사용자에게 공백으로 구분된 숫자를 받아 오름차순으로 정렬하고, 출력
 """
+
+
 def input_numbers():
     """
     숫자들을 입력받아 리스트에 저장 후 리턴. 공백을 기준으로 숫자 구분.
@@ -14,45 +16,20 @@ def input_numbers():
         print("Invalid input.")
         exit()
 
-def sort_merge(numbers):
-    if len(numbers) == 1:
-        return numbers
-    else:
-        mid_index = len(numbers) // 2
-        left = sort_merge(numbers[:mid_index])
-        right = sort_merge(numbers[mid_index:])
-        return merge(left, right)
-
-def merge(left,right):
+def sort_buble(numbers):
     """
-    주어진 리스트 2개를 비교하여 정렬하며 병합. 
+    버블 정렬 실행
     """
-    result = list()
-    left_tail = 0
-    right_tail = 0
-    
-    while (left_tail < len(left) and right_tail < len(right)): #한 쪽 리스트를 다 비울 때 까지 비교하며 병합
-        if left[left_tail] <= right[right_tail]:
-            result.append(numbers[left_tail])
-            left_tail += 1
-        else:
-            result.append(numbers[right_tail])
-            right_tail += 1
-    
-    while (left_tail <= mid): #왼쪽 다 비우기
-        result.append(numbers[left_tail])
-        left_tail += 1
-    
-    while (right_tail <= right): #오른쪽 다 비우기
-        result.append(numbers[right_tail])
-        right_tail += 1
-    
-    return result
+    for determined in range(len(numbers)-1, 0, -1): #determined는 자리가 결정된(여기 인덱스의 숫자는 위치가 고정) data를 의미
+        for index_com in range(determined): #비교를 하기 위한 index = index_com
+            if numbers[index_com] > numbers[index_com + 1]:
+                numbers[index_com], numbers[index_com + 1] = numbers[index_com + 1], numbers[index_com]
 
 def main():
     user_input = input_numbers()
-    after_sorted = sort_merge(user_input)
-    print(after_sorted)
+    sort_buble(user_input)
+    printed = str(user_input)[1:-1]
+    print(printed)
     
 if __name__ == "__main__":
     main()

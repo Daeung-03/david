@@ -44,7 +44,7 @@ def input_num():
             return number
         except ValueError:
             print("Invalid number input.") #ex) string with letter, two or more dot
-            
+            exit()
         else: break # check valid input 
 
 def input_operator():
@@ -59,15 +59,16 @@ def input_operator():
             return command
         except:
             print("Invalid operator")
+            exit()
         else: break
 
 def menu():
     """
     사용자에게 두 가지 모드 중 하나를 선택할 수 있도록 인터페이스를 제공한다.
     """
-        print("(0): basic\n(1): expression")
-        command = input().strip()
-        return command
+    print("(0): basic\n(1): expression")
+    command = input().strip()
+    return command
 
 def calculate(a, b, operator):
     """
@@ -81,6 +82,9 @@ def calculate(a, b, operator):
         return multiply(a,b)
     elif operator == '/':
         return divide(a,b)
+    else:
+        print("Invalid operator")
+        exit()
 
 
 def print_sol(command):
@@ -96,8 +100,10 @@ def print_sol(command):
         print(printed)
 
 def main():
-    print_sol(menu())
-
+    try:
+        print_sol(menu())
+    except ValueError:
+        print("Invalid number input.")
     
 if __name__ == "__main__":
     main()

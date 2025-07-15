@@ -42,7 +42,10 @@ def calculate(number, exponent):
     if exponent == 0:
         return 1 #exponent 0일 때 예외 처리
     elif exponent < 0:
-        return 1/calculate(number, -exponent) #exponent 음수일 때 양수의 역수 계산 후 역수 리턴
+        if number == 0:
+            print("zero division!")
+            exit()
+        else: return 1/calculate(number, -exponent) #exponent 음수일 때 양수의 역수 계산 후 역수 리턴
 
     solution = 1.0
     while exponent >= 1:

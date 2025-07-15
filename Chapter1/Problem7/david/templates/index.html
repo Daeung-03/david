@@ -22,3 +22,10 @@
     <source src="data:audio/mpeg;base64,{{ audio }}">
   </audio>
 {% endif %}
+
+{% if download_url %}
+  <a href="{{  download_url  }}" download="generated_audio.mp3">
+    다운로드
+  </a>
+{% endif %}
+

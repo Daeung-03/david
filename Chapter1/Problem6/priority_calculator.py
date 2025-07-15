@@ -15,7 +15,7 @@ def subtract(a, b):
     a-b return
     """
     return a-b
-    ㅉ
+
 def multiply(a, b):
     """
     a*b return
@@ -59,11 +59,11 @@ def stris_float(string):
 
 def check_valid(list):
     """
-    입력받은 expression이 타당한지 확인
+    입력받은 expression이 올바른 입력인 지 확인
     """
     for data in list:
         if not stris_float(data) and data not in operator_list: #숫자도 아니고 오퍼레이터도 아니면 error
-            print("Invalid number input.")
+            print("Invalid input.")
             exit()
 
 def main():

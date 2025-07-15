@@ -15,7 +15,7 @@ def subtract(a, b):
     a-b return
     """
     return a-b
-    ㅉ
+
 def multiply(a, b):
     """
     a*b return
@@ -63,7 +63,7 @@ def check_valid(list):
     """
     for data in list:
         if not stris_float(data) and data not in operator_list: #숫자도 아니고 오퍼레이터도 아니면 error
-            print("Invalid number input.")
+            print("Invalid input.")
             exit()
 
 def main():
@@ -81,8 +81,7 @@ def main():
             numbers.pop(index_1th)
             numbers.insert(index_1th, temp)
         else: index_1th += 1
-            
-                
+                           
     for j in operators: #더하기, 빼기 찾아 연산
         if j == '+' or j == '-':
             temp = calculate(numbers[index_2nd], numbers[index_2nd+1], j)

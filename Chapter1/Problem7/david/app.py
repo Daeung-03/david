@@ -30,7 +30,9 @@ def ask():
             if user_lang != detected_lang:
                 raise Exception("사용한 언어가 일치하지 않습니다.") #gTTS에서 억양만 바꿔서 출력하는 경우 예외처리
             
-            
+            with open('/home/eodnd74/Documents/working_daeung03/Codyssey/Chapter1/Problem7/david/log.txt', 'a', encoding='utf-8') as f:
+                f.write(f"언어: {user_lang}, 텍스트: {user_text}\n")
+
             tts = gTTS(user_text, "com", user_lang)
             tts.save(file_path)
             download_url = '/static/audio/' + file_name #서버에 파일저장, 다운로드 url 생성

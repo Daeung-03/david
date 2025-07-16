@@ -40,7 +40,7 @@ def ask():
             fp = BytesIO()
             tts.write_to_fp(fp)
             audio_data = fp.getvalue()
-            audio = base64.b64encode(audio_data).decode('utf-8') #출력할 audio 변수 생성
+            audio = base64.b64encode(audio_data).decode('utf-8') #출력할 audio 변수 생성, HTML에서 출력하기 위해 문자열로 디코딩!
         
             return render_template('index.html', error=error, audio = audio, download_url = download_url) #페이지 출력
         

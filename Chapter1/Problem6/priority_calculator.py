@@ -61,10 +61,16 @@ def check_valid(list):
     """
     입력받은 expression이 타당한지 확인
     """
+    if list[-1] in ['*', '/', '+', '-']:
+        print("Invalid input.")
+        exit()
+    
     for data in list:
         if not stris_float(data) and data not in operator_list: #숫자도 아니고 오퍼레이터도 아니면 error
             print("Invalid input.")
             exit()
+        
+        
 
 def expression_cut(expression):
     """

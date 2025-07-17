@@ -61,14 +61,40 @@ def check_valid(list):
     """
     입력받은 expression이 타당한지 확인
     """
+    if not paren_check(list):
+        print("Invalid input.")
+        exit()    
+
     if list[-1] in ['*', '/', '+', '-']:
         print("Invalid input.")
         exit()
+
     
-    for data in list:
-        if not stris_float(data) and data not in operator_list: #숫자도 아니고 오퍼레이터도 아니면 error
+    for index in range(len(list)):
+        if not stris_float(list[index]) and list[index] not in operator_list: #숫자도 아니고 오퍼레이터도 아니면 error
             print("Invalid input.")
             exit()
+        if list[index] == '(':
+            if stris_float(list[index - 1]):
+                print("Invalid input.")
+                exit()
+
+def paren_check(list):
+    """
+    괄호를 제대로 열고 닫았는 지 확인
+    """
+    check = []
+    for i, data in enumerate(list):
+        if data == '(':
+            check.append(i) #열린 괄호 발견하면 위치(존재)저장
+        elif data == ')':
+            if not check: #열린 괄호가 없는데 닫힌 괄호 사용
+                return False
+            check.pop()
+    if check: #열린 괄호 남음
+        return False
+    
+    return True
         
         
 

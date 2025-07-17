@@ -1,4 +1,4 @@
-# Document for Problem_2 by Daeung-03
+# Document for Problem_8 by Daeung-03
 ---
 
 ## 1. Merge와 Rebase의 차이점

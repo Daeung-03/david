@@ -90,14 +90,23 @@ def check_valid_expr(expression):
 
 def cut_expression(expr):
     """
-    주어진 표현식에서 처리가 애매한 표현식을 다시 정리한다
+    주어진 표현식에서 완벽하게 숫자와 연산자를 구분하여 저장한다.
     즉 음수의 경우 -와 숫자를 띄어서 입력하는 것을 허용한다.
     """
-    for index, data in enumerate(expr):
-        if data == '-' and expr[index + 1]:
-            expr[index:index+2] = [-float(data)]
-
-    return expr 
+    result = []
+    i = 0
+    while i < len(expr):
+        if (expr[i] == '-' and i + 1 < len(expr) and (i == 0 or expr[i-1] in operator_list)):  # 첫 번째이거나 연산자 다음
+            try: # 음수로 합치기
+                result.append(str(-float(expr[i + 1]))) 
+                i += 2
+            except (ValueError, IndexError):
+                result.append(expr[i])
+                i += 1
+        else:
+            result.append(expr[i])
+            i += 1
+    return result
     
 
 def calculate(a, b, operator):

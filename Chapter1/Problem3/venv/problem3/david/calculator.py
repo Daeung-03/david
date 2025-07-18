@@ -74,9 +74,9 @@ def check_valid_expr(expression):
     """
     주어진 표현식이 정당한 지 확인한다.
     """
-    if len(expression) < 1: #빈 입력
+    if len(expression) < 3: #빈 입력
         return False
-    
+
     numbers = [expression[0], expression[2]]
     operator = expression[1]
 
@@ -88,6 +88,17 @@ def check_valid_expr(expression):
 
     return True 
 
+def cut_expression(expr):
+    """
+    주어진 표현식에서 처리가 애매한 표현식을 다시 정리한다
+    즉 음수의 경우 -와 숫자를 띄어서 입력하는 것을 허용한다.
+    """
+    for index, data in enumerate(expr):
+        if data == '-' and expr[index + 1]:
+            expr[index:index+2] = [-float(data)]
+
+    return expr 
+    
 
 def calculate(a, b, operator):
     """
@@ -115,6 +126,7 @@ def print_sol(command):
         print(printed)
     elif command == '1':
         input_expression = input("Enter expression: ").split() #default split(separate, maxsplit)
+        input_expression = cut_expression(input_expression)
         if not check_valid_expr(input_expression):
             print("Invalid expression")
             exit()

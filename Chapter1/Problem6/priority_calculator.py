@@ -61,11 +61,15 @@ def check_valid(list):
     """
     입력받은 expression이 타당한지 확인
     """
+    if len(list) == 0: #비어있는 입력 error
+        print("Invalid input.")
+        exit()
+
     if not paren_check(list):
         print("Invalid input.")
         exit()    
 
-    if list[-1] in ['*', '/', '+', '-']:
+    if list[-1] in ['*', '/', '+', '-']: #맨 마지막이 사칙연산 연산자이면 error
         print("Invalid input.")
         exit()
 
@@ -78,11 +82,14 @@ def check_valid(list):
         if data == "(" and index != 0 and stris_float(list[index-1]): #괄호 앞 연산자가 없으면 error
             print("Invalid input.")
             exit()
-
-
+        
+        if data in ['*', '/', '+', '-'] and list[index - 1] in ['*', '/', '+', '-', '(']: #연산자 연속 사용 에러
+            print("Invalid input.")
+            exit()
+       
 def paren_check(list):
     """
-    괄호를 제대로 열고 닫았는 지 확인
+    괄호를 제대로 열고 닫았는 지 확인, 또 괄호 안의 내용이 정상적인지 확인.
     """
     check = []
     for i, data in enumerate(list):
@@ -91,6 +98,13 @@ def paren_check(list):
         elif data == ')':
             if not check: #열린 괄호가 없는데 닫힌 괄호 사용
                 return False
+            else:
+                contents = list[check[-1] + 1 : i]
+                if not contents: #내용이 비어있음
+                    return False
+                if contents[0] in ['*', '/', '+', '-']: #연산자로 표현하는 수식은 error
+                    return False
+            
             check.pop()
     if check: #열린 괄호 남음
         return False

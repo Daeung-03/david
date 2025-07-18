@@ -70,6 +70,25 @@ def menu():
     command = input().strip()
     return command
 
+def check_valid_expr(expression):
+    """
+    주어진 표현식이 정당한 지 확인한다.
+    """
+    if len(expression) < 1: #빈 입력
+        return False
+    
+    numbers = [expression[0], expression[2]]
+    operator = expression[1]
+
+    try:
+        float(numbers[0])
+        float(numbers[1]) #실수가 아님, 형식이 잘못됨
+    except:
+        return False
+
+    return True 
+
+
 def calculate(a, b, operator):
     """
     두 수 a, b를 operator에 맞게 계산한다. 이 때 a가 항상 수식의 왼쪽이다.
@@ -96,6 +115,9 @@ def print_sol(command):
         print(printed)
     elif command == '1':
         input_expression = input("Enter expression: ").split() #default split(separate, maxsplit)
+        if not check_valid_expr(input_expression):
+            print("Invalid expression")
+            exit()
         printed = f"Result: {calculate(float(input_expression[0]), float(input_expression[2]), input_expression[1])}"
         print(printed)
 

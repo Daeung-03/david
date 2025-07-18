@@ -70,14 +70,15 @@ def check_valid(list):
         exit()
 
     
-    for index in range(len(list)):
-        if not stris_float(list[index]) and list[index] not in operator_list: #숫자도 아니고 오퍼레이터도 아니면 error
+    for index, data in enumerate(list):
+        if not stris_float(data) and data not in operator_list: #숫자도 아니고 오퍼레이터도 아니면 error
             print("Invalid input.")
             exit()
-        if list[index] == '(':
-            if stris_float(list[index - 1]):
-                print("Invalid input.")
-                exit()
+        
+        if data == "(" and index != 0 and stris_float(list[index-1]): #괄호 앞 연산자가 없으면 error
+            print("Invalid input.")
+            exit()
+
 
 def paren_check(list):
     """
@@ -96,8 +97,6 @@ def paren_check(list):
     
     return True
         
-        
-
 def expression_cut(expression):
     """
     리스트로 구성된 expression을 숫자와 연산자로 구분하여 리스트 반환

@@ -47,9 +47,9 @@ def visualize_map(data):
     
     # 카테고리별 데이터 저장
     apartments_buildings = data[data['category'].isin(['Apartment', 'Building'])]
-    shops        = data[data['category']=='BandalgomCoffee']
-    home             = data[data['category']=='MyHome']
-    construction_sites  = data[data['ConstructionSite']==1]
+    shops = data[data['category']=='BandalgomCoffee']
+    home = data[data['category']=='MyHome']
+    construction_sites = data[data['ConstructionSite']==1]
 
     # 겹치는 구조물 건설 현장으로 변경
     data = mask_overlap(data)

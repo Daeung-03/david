@@ -30,6 +30,13 @@ def setup_coordinate_system(ax, data):
     
     return x_min, x_max, y_min, y_max
 
+def mask_overlap(data):
+    overlap_data = data[data['ConstructionSite'] == 1][['x', 'y']]
+    mask = data.set_index(['x', 'y']).index.isin(overlap_data.set_index(['x', 'y']).index)
+    data.loc[mask, 'ConstructionSite'] = 1
+    data.loc[mask, 'category'] = ' etc'
+    return data
+
 def visualize_map(data):
     
     # 플롯 생성
@@ -44,6 +51,8 @@ def visualize_map(data):
     home             = data[data['category']=='MyHome']
     construction_sites  = data[data['ConstructionSite']==1]
 
+    # 겹치는 구조물 건설 현장으로 변경
+    data = mask_overlap(data)
     
     # 아파트·빌딩 -> 갈색 원형
     ax.scatter(apartments_buildings['x'], apartments_buildings['y'],
@@ -76,6 +85,9 @@ def visualize_map(data):
     # 범례 표시
     ax.legend(loc='upper right', bbox_to_anchor=(1.0, 1.0))
     
+    # 이미지 저장
+    fig.savefig('map.png', bbox_inches='tight', dpi=300)
+
     # 레이아웃 조정
     plt.tight_layout()
     plt.show()

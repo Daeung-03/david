@@ -6,7 +6,6 @@ def Serching_Analysis():
     category = pd.read_csv('dataFiles/area_category.csv')
     map = pd.read_csv('dataFiles/area_map.csv')
 
-  #
     category_dict = category.set_index(category.columns[0])[category.columns[1]].to_dict()
     category_dict.update({0: ' etc'})
 

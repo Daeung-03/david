@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from Teamproject1.caffee_map import Serching_Analysis
+from caffee_map import Serching_Analysis
 
 def setup_coordinate_system(ax, data):
     """
@@ -70,17 +70,6 @@ def visualize_map(data):
     ax.scatter(construction_sites['x'], construction_sites['y'], 
               c='lightgrey', s=140, alpha=0.8, marker='s',
               label=f'construction_sites ({len(construction_sites)})', zorder=5)
-    
-    # 좌표계 확인용 모서리 점 표시
-    corners = [(x_min, y_min), (x_max, y_min), (x_min, y_max), (x_max, y_max)]
-    corner_labels = ['left_top', 'right_top', 'left_bottom', 'right_bottom']
-    
-    for i, (x, y) in enumerate(corners):
-        ax.plot(x, y, 'ko', markersize=8)
-        ax.annotate(f'{corner_labels[i]}\n({x},{y})', 
-                   (x, y), xytext=(10, 10), 
-                   textcoords='offset points', 
-                   fontsize=8, ha='left')
     
     # 범례 표시
     ax.legend(loc='upper right', bbox_to_anchor=(1.0, 1.0))

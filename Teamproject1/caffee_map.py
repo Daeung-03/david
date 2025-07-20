@@ -20,7 +20,7 @@ def Serching_Analysis():
     # 좌표 기준, 아우터 조인 실행 후, area 기준으로 정렬
     merged_map_data = (
         map_data.merge(structure, on=["x", "y"], how="outer")
-        .sort_value(by="area")
+        .sort_values(by="area")
         .reset_index(drop="True")
     )
 

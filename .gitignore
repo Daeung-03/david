@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+
+mas_map.csv
+map.png
+
+

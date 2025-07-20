@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from coffe_map import Serching_Analysis
+from Teamproject1.caffee_map import Serching_Analysis
 
 def setup_coordinate_system(ax, data):
     """

@@ -77,7 +77,7 @@ GitHub의 **고급 리포지토리 기능(Advanced Repository Features)**는 코
 주기적인 관리: 보안 정책에 따라 정기적으로 토큰을 교체하고 이전 토큰을 폐기합니다.
 
 ## 2. 파이썬 개발 시 __pycache__와 .venv 디렉토리가 생성되는 이유를 조사한다.
-__pycache__ 디렉토리는 파이썬이 소스 코드를 **바이트코드(bytecode)**로 컴파일한 결과를 저장하는 공간입니다 .
+\__pycache__ 디렉토리는 파이썬이 소스 코드를 **바이트코드(bytecode)**로 컴파일한 결과를 저장하는 공간입니다 .
 
 생성 이유: 파이썬은 인터프리터 언어이지만, 내부적으로는 실행 속도를 높이기 위해 소스 코드(.py 파일)를 더 낮은 수준의 명령어 집합인 바이트코드로 변환하는 컴파일 과정을 거칩니다 . __pycache__는 이 바이트코드 파일(.pyc 파일)을 저장하는 캐시 역할을 합니다 .
 
@@ -307,20 +307,15 @@ __marimo__/
 
 
 ## 4. Flask 기반 프로젝트를 기준으로 .gitignore에 추가되어야 할 항목들을 나열한다.
-# Created by https://www.toptal.com/developers/gitignore/api/flask
-# Edit at https://www.toptal.com/developers/gitignore?templates=flask
+\# Created by https://www.toptal.com/developers/gitignore/api/flask
+\# Edit at https://www.toptal.com/developers/gitignore?templates=flask
 
-\### Flask ###
+\### Flask \###
 instance/*
 !instance/.gitignore
 .webassets-cache
 .env
 
-\### Flask.Python Stack ###
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
 ---
 
 Flask 관련 파일 및 디렉토리

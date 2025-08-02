@@ -48,5 +48,9 @@ def ask():
             error = f"오류 발생: {e}"
             return render_template('index.html', error=error, audio = None, download_url = download_url) #오류 발생 페이지 출력
 
+@app.route("/menu", methods = 'GET')
+def menu():
+    return render_template('menu.html')
+
 if __name__ == '__main__':
     app.run('0.0.0.0', 5000, debug = True)

@@ -4,6 +4,7 @@ from io import BytesIO
 from gtts import gTTS
 from langdetect import detect
 import base64
+import socket
 
 app = Flask(__name__)
 

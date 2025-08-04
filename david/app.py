@@ -10,7 +10,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template('home.html')
+    if app.debug:
+        hostname = '컴퓨터(인스턴스) : ' + socket.gethostname()
+    else:
+        hostname = ' '
+    return render_template('home.html', computername=hostname)
     
 
 @app.route("/useruse", methods = ['GET', 'POST'])

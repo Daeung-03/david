@@ -1,1 +1,10 @@
-반달곰 커피의 홈페이지를 제작하는 프로젝트이다.
+## 반달곰 커피 홈페이지   
+참조링크:[홈페이지](https://반달곰커피)   
+오디오 출력 소스코드
+```
+lang = request.args.get('lang', DEFAULT_LANG)
+fp = BytesIO()
+gTTS(text, "com", lang).write_to_fp(fp)
+encoded_audio_data = base64.b64encode(fp.getvalue())
+```
+![david](david/static/david.jpg)
